@@ -1,5 +1,5 @@
 ---
-title: The `Key` Entity
+title: The Key Entity
 ---
 # The `Key` Entity
 The `Key` entity represent an API key used to access all other APIs.

@@ -27,7 +27,6 @@ module.exports = {
                 title: 'FlippinBook Online API',
                 path: '/fbonline/',
                 children: [
-                    '/fbonline/concepts',
                     '/fbonline/publications',
                     '/fbonline/sources',
                     '/fbonline/trackedlinks',
