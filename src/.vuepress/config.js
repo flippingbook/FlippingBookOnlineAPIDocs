@@ -16,11 +16,13 @@ module.exports = {
                     '/general/change-policy'
                 ]
             },
-            /*{
-                title: 'Authentication API',
+            {
+                title: 'Key Management',
                 path: '/auth/',
-                children: []
-            },*/
+                children: [
+                    '/auth/keys'
+                ]
+            },
             {
                 title: 'FlippinBook Online API',
                 path: '/fbonline/',
