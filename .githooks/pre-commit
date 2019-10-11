@@ -5,3 +5,5 @@ git reset -- docs/CNAME
 git checkout docs/CNAME
 yarn run build
 git add docs
+git reset -- docs/CNAME
+git checkout docs/CNAME
