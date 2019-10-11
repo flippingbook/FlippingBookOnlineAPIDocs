@@ -2,5 +2,3 @@
 title: Authentication
 ---
 # Authentication
-
-fdsjjfsdkhjfads
