@@ -43,3 +43,4 @@ Most error codes are application/call specific, however some universally returna
 |403|InvalidApiKey|The API key supplied in the `Authorization` header is invalid.|
 |404|NotFound|The endpoint specified in your request (combination of HTTP method and path) does not exist.|
 |429|RateLimitExceeded|Your application calls our API too fast and has exceeded [rate limit](/general/limitations).|
+|500|InternalError|Your request does not meet required format, or some internal error has occured.|
