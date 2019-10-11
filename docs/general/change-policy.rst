@@ -1,2 +1,0 @@
-API Changes Policy
-******************
