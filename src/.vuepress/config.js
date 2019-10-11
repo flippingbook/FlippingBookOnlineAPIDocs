@@ -1,7 +1,7 @@
 module.exports = {
     title: 'FlippingBook Public APIs documentation',
     description: 'Welcome to the FlippingBook Public APIs documentation',
-    dest: '../docs',
+    dest: 'docs',
     themeConfig: {
         sidebarDepth: 2,
         sidebar: [
