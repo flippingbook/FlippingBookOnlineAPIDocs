@@ -1,2 +1,5 @@
-Error Handling
-**************
+---
+title: Error Handling
+---
+
+# Handling Errors

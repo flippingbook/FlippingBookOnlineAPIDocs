@@ -1,6 +1,0 @@
-Authors
--------
-
-* The FlippingBook team
-
-

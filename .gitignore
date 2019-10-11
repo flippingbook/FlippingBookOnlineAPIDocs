@@ -1,3 +1,5 @@
 _build
 .idea
 .vs
+yarn.lock
+node_modules
