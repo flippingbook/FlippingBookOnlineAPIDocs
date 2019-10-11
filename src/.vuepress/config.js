@@ -29,7 +29,7 @@ module.exports = {
                 children: [
                     '/fbonline/publications',
                     '/fbonline/sources',
-                    '/fbonline/trackedlinks',
+                    '/fbonline/tracked-links',
                     '/fbonline/triggers',
                     '/fbonline/webhooks'
                 ]
