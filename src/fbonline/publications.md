@@ -29,11 +29,11 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Total`|Number|Total number of publications matching request (disregarding offset/count).|
 |`Publications`|array of objects|Matching publications. See [publication model description](/fbonline/publication).|
-## `GET /api/v1/fbonline/publication/<id>`
+## `GET /api/v1/fbonline/publication/{id}`
 Retrieves information about one publication by its identifier.
 ### Request format
 ```http request
-GET /api/v1/fbonline/publication/<id> HTTP/1.1
+GET /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
 |Parameter|Required?|Description|
@@ -53,11 +53,11 @@ Host: api-tc.is.flippingbook.com
 |HTTP Status Code|Error code|Meaning|
 |:-:|:-:|-|
 |200|ObjectNotFound|Publication with specified identifier was not found (or does not belong to your account).|
-## `POST /api/v1/fbonline/publication/<id>`
+## `POST /api/v1/fbonline/publication/{id}`
 Updates metadata of one publication or creates a new publication possibly attaching new source file.
 ### Request format
 ```http request
-POST /api/v1/fbonline/publication/<id> HTTP/1.1
+POST /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 
 {
@@ -99,11 +99,11 @@ In case when `Url` or `Data` is specified, the [Source](/fbonline/sources) entit
 ::: warning 
 If `Url` or `Data` contain invalid value (inaccessible URL, not a PDF file, PDF exceeding limitations), source is marked as erroneous and, if it was the only source, the publication itself gets deleted.
 :::
-## `POST /api/v1/fbonline/publication/<id>/customize`
+## `POST /api/v1/fbonline/publication/{id}/customize`
 Updates publication customization (looks and behavior).
 ### Request format
 ```http request
-POST /api/v1/fbonline/publication/<id>/customize HTTP/1.1
+POST /api/v1/fbonline/publication/{id}/customize HTTP/1.1
 Host: api-tc.is.flippingbook.com
 
 {
@@ -139,11 +139,11 @@ Host: api-tc.is.flippingbook.com
 ::: warning
 Although you can set any customization data regardless of your account subscription plan, it will be filtered of not available features upon publication view. 
 :::
-## `DELETE /api/v1/fbonline/publication/<id>`
+## `DELETE /api/v1/fbonline/publication/{id}`
 Deletes publication.
 ### Request format
 ```http request
-DELETE /api/v1/fbonline/publication/<id> HTTP/1.1
+DELETE /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
 |Parameter|Required?|Description|
