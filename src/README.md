@@ -7,11 +7,7 @@ description: Welcome to the FlippingBook Public APIs Documentation
 
 ## Welcome to the FlippingBook Public APIs documentation.
 
-This page lists the reference documentation for FlippingBook APIs.
-
-Section [General Information](/general/) is about ommon concepts and how our APIs are organized.
-
-Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
+This page lists the reference documentation for FlippingBook APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
 
 ## FlippingBook Public APIs General Information
 
