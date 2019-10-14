@@ -4,12 +4,12 @@ actionLink: /
 title: FlippingBook Public APIs Documentation
 description: Welcome to the FlippingBook Public APIs Documentation
 ---
-Welcome to the FlippingBook Public APIs documentation
-=====================================================
 
-FlippingBook public APIs allow you to use FlippingBook's online services from your applications.
+## Welcome to the FlippingBook Public APIs documentation.
 
-Section [General Information](/general/) tells about how our APIs are organized and explains common concepts.
+This page lists the reference documentation for FlippingBook APIs.
+
+Section [General Information](/general/) is about ommon concepts and how our APIs are organized.
 
 Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
 
