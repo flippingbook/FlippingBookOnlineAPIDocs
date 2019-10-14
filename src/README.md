@@ -110,8 +110,9 @@ Read about entities supported by this API:
 ## The `Key` Entity
 The `Key` entity represent an API key used to access all other APIs.
 
-### `GET /api/v1/auth/key`
-Lists all API keys for your account. 
+### List all API keys for your account
+`GET /api/v1/auth/key`
+
 #### Request format
 ```http request
 GET /api/v1/auth/key?accessToken=string HTTP/1.1
@@ -138,8 +139,8 @@ Host: api-tc.is.flippingbook.com
 This call might be made without `Authorization` header yet you must supply `accessToken` parameter as a fallback. If `Authorization` header is present, it takes precedence even if its value is invalid.
 :::
 
-### `POST /api/v1/auth/key`
-Creates a new API key for your account.
+### Create a new API key for your account
+`POST /api/v1/auth/key`
 #### Request format
 ```http request
 POST /api/v1/auth/key HTTP/1.1
@@ -184,8 +185,9 @@ Host: api-tc.is.flippingbook.com
 ::: tip
 By calling this method your current used API key is revoked.
 :::
-### `GET /api/v1/auth/me`
-Gets information about current account. This method is primarily designed for API key testing and has no other meaningful purpose.
+### Get information about current account (testing)
+`GET /api/v1/auth/me`
+This method is primarily designed for API key testing and has no other meaningful purpose.
 #### Request format
 ```http request
 GET /api/v1/auth/me HTTP/1.1
@@ -249,8 +251,8 @@ Publication sources represent publication's content. More than one source may be
 Once created, sources cannot be updated and/or deleted. On creation they are put into conversion queue and activated (so the publication displays it) when conversion finished.
 :::
 
-### `GET /api/v1/fbonline/publication/{id}/source`
-Lists all sources for the given publication.
+### List all sources for the given publication
+`GET /api/v1/fbonline/publication/{id}/source`
 #### Request format
 ```http request
 GET /api/v1/fbonline/publication/{id}/source HTTP/1.1
@@ -270,7 +272,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Sources`|array of objects|Array of [source objects](/fbonline/source).|
  
-### `GET /api/v1/fbonline/publication/{id}/source/{source-id}`
+### Retrieve information about one single source
+`GET /api/v1/fbonline/publication/{id}/source/{source-id}`
 Retrieves information about one single source. 
 #### Request format
 ```http request
@@ -292,8 +295,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Sources`|array of objects|Array of [source objects](/fbonline/source) (one element).|
 
-### `POST /api/v1/fbonline/publication/{id}/source`
-Creates a new publication source. 
+### Create a new publication source 
+`POST /api/v1/fbonline/publication/{id}/source`
 #### Request format
 ```http request
 POST /api/v1/fbonline/publication/{id}/source HTTP/1.1
@@ -325,8 +328,8 @@ The tracked link is a special link (URL) for the publication with independant st
 Each link has a separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](/fbonline/triggers#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](/fbonline/triggers#delete-api-v1-fbonline-tracked-links-hook-id).
 
 
-### `GET /api/v1/fbonline/tracked_links`
-Lists tracked links.
+### List tracked links
+`GET /api/v1/fbonline/tracked_links`
 #### Request format
 ```http request
 GET /api/v1/fbonline/tracked_links HTTP/1.1
@@ -355,8 +358,8 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) matching your filter.|
 
-### `GET /api/v1/fbonline/tracked_links/{id}`
-Retrieves information about one tracked link. 
+### Retrieve information about one tracked link
+`GET /api/v1/fbonline/tracked_links/{id}`
 
 #### Request format
 ```http request
@@ -380,9 +383,8 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
 
-### `POST /api/v1/fbonline/tracked_links`
-Creates a new tracked link. 
-
+### Create a new tracked link
+`POST /api/v1/fbonline/tracked_links`
 #### Request format
 ```http request
 VERB /api/v1/path HTTP/1.1
@@ -426,9 +428,8 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
 
-### `PUT /api/v1/fbonline/tracked_links/{id}`
-Modifies or delete specified tracked link. 
-
+### Modify or delete specified tracked link 
+`PUT /api/v1/fbonline/tracked_links/{id}`
 #### Request format
 ```http request
 PUT /api/v1/fbonline/tracked_links/{id} HTTP/1.1
@@ -479,8 +480,8 @@ Triggers and hooks provide a way for your application to react to different Flip
 - Tracked link-level triggers: notify about events on one tracked link.
 
 ### Account Level Triggers
-#### `GET /api/v1/fbonline/webhook`
-Lists all account-wide triggers. 
+#### List all account-wide triggers 
+`GET /api/v1/fbonline/webhook`
 ##### Request format
 ```http request
 GET /api/v1/fbonline/webhook HTTP/1.1
@@ -497,8 +498,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Webhooks`|array of objects|Array of [trigger objects](/fbonline/trigger) defined for your account.|
 
-#### `POST /api/v1/fbonline/webhook/{id}`
-Creates/updates account-wide trigger. 
+#### Create or update an account-wide trigger 
+`POST /api/v1/fbonline/webhook/{id}`
 ##### Request format
 ```http request
 POST /api/v1/fbonline/webhook/{id} HTTP/1.1
@@ -527,8 +528,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Id`|string|Unique identifier of created/updated trigger.|
 
-#### `DELETE /api/v1/fbonline/webhook/{id}`
-Deletes account-wide trigger. 
+#### Delete account-wide trigger 
+`DELETE /api/v1/fbonline/webhook/{id}`
 ##### Request format
 ```http request
 DELETE /api/v1/fbonline/webhook HTTP/1.1
@@ -545,8 +546,8 @@ Host: api-tc.is.flippingbook.com
 ```
 
 ### Publication Level Triggers
-#### `GET /api/v1/fbonline/publication/{publication-id}/trigger`
-Lists all triggers for the given publication. 
+#### List all triggers for the given publication
+`GET /api/v1/fbonline/publication/{publication-id}/trigger`
 ##### Request format
 ```http request
 GET /api/v1/fbonline/publication/{publication-id}/trigger HTTP/1.1
@@ -566,8 +567,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Webhooks`|array of objects|Array of [trigger objects](/fbonline/trigger) defined for your publication.|
 
-#### `POST /api/v1/fbonline/publication/{publication-id}/trigger/{id}`
-Creates/updates publication level trigger. 
+#### Create or update a publication level trigger
+`POST /api/v1/fbonline/publication/{publication-id}/trigger/{id}`
 ##### Request format
 ```http request
 POST /api/v1/fbonline/publication/{publication-id}/trigger/{id} HTTP/1.1
@@ -597,8 +598,8 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Id`|string|Unique identifier of created/updated trigger.|
 
-#### `DELETE /api/v1/fbonline/publication/{publication-id}/trigger/{id}`
-Deletes publication level trigger. 
+#### Delete a publication level trigger 
+`DELETE /api/v1/fbonline/publication/{publication-id}/trigger/{id}`
 ##### Request format
 ```http request
 DELETE /api/v1/fbonline/publication/{publication-id}/trigger/webhook HTTP/1.1
@@ -616,7 +617,8 @@ Host: api-tc.is.flippingbook.com
 ```
 
 ### Tracked Link Level Triggers
-#### `POST /api/v1/fbonline/tracked_links/hook/{id}`
+#### Update a tracked link notification trigger
+`POST /api/v1/fbonline/tracked_links/hook/{id}`
 Updates tracked link notification trigger. 
 ##### Request format
 ```http request
@@ -649,8 +651,8 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
 
-#### `DELETE /api/v1/fbonline/tracked_links/hook/{id}`
-Deletes tracked link notification trigger. 
+#### Delete a tracked link notification trigger 
+`DELETE /api/v1/fbonline/tracked_links/hook/{id}`
 ##### Request format
 ```http request
 DELETE /api/v1/fbonline/tracked_links/hook/{id} HTTP/1.1
@@ -672,4 +674,3 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
-
