@@ -2,9 +2,9 @@
 title: The Tracked Link Entity
 ---
 # The `Tracked Link` Entity
-The tracked link is a special link (URL) for the publication with separate statistics and event handling. For example you may have a link which sends you (author) an email when it is opened for the first time.
+The tracked link is a special link (URL) for the publication with independant statistics and event handling. For example you may have a link which sends you (author) an email when the tracked link is opened for the first time.
 
-Each link has separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](/fbonline/triggers#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](/fbonline/triggers#delete-api-v1-fbonline-tracked-links-hook-id).
+Each link has a separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](/fbonline/triggers#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](/fbonline/triggers#delete-api-v1-fbonline-tracked-links-hook-id).
 
 
 ## `GET /api/v1/fbonline/tracked_links`
@@ -106,7 +106,7 @@ Host: api-tc.is.flippingbook.com
 |`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
 
 ## `PUT /api/v1/fbonline/tracked_links/{id}`
-Modifies or deleted specified tracked link. 
+Modifies or delete specified tracked link. 
 ### Request format
 ```http request
 PUT /api/v1/fbonline/tracked_links/{id} HTTP/1.1
