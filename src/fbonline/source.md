@@ -3,6 +3,8 @@ title: Source Entity Model
 ---
 # `Source` Entity Model
 
+|Property|Type|Description|
+|-|-|-|
 |`Id`|string|Source unique identifier. Although these ids are unique across the system they cannot be used without publication identifier.|
 |`PublicationId`|string|Parent publication identifier.|
 |`links`|array of objects|HATEOAS links to related API resources.|

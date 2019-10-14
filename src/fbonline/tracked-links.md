@@ -4,7 +4,8 @@ title: The Tracked Link Entity
 # The `Tracked Link` Entity
 The tracked link is a special link (URL) for the publication with separate statistics and event handling. For example you may have a link which sends you (author) an email when it is opened for the first time.
 
-Each link has separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](#delete-api-v1-fbonline-tracked-links-hook-id).
+Each link has separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](/fbonline/triggers#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](/fbonline/triggers#delete-api-v1-fbonline-tracked-links-hook-id).
+
 
 ## `GET /api/v1/fbonline/tracked_links`
 Lists tracked links.
@@ -130,63 +131,6 @@ Host: api-tc.is.flippingbook.com
 |`OnViewTrigger`|No|Should notification be delivered when link is opened (first 10 times)?|
 |`OnDownload`|No|Should notification be delivered when PDF download or printing is requested for linked publication?|
 |`OnNotOpenedUntil`|No|Should notification be delivered when link is not opened until specified date/time (ISO 8601 format)?|
-### Response format
-```json
-{
-  "Success": true,
-  "Total": 1,
-  "UserTotal": Number,
-  "Links": [ { /* link object */ } ]
-}
-```
-|Property|Type|Description|
-|-|-|-|
-|`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
-
-## `POST /api/v1/fbonline/tracked_links/hook/{id}`
-Updates tracked link notification hook. 
-### Request format
-```http request
-POST /api/v1/fbonline/tracked_links/hook/{id} HTTP/1.1
-Host: api-tc.is.flippingbook.com
-
-{
-  "Name": String,
-  "Endpoint": String,
-  "Events": [ String, ... ]
-}
-```
-|Parameter|Required?|Description|
-|-|:-:|-|
-|`id` <Badge>From path</Badge>|Yes|Link trigger identifier.|
-|`Name`|No|Description of a trigger. It is not seen anywhere but via API.|
-|`Endpoint`|No|Target URL for the trigger. When trigger fires an event, this URL is POST'ed with corresponding trigger/link/publication data.|
-|`Events`|Yes|Event names for which this trigger should fire.| 
-### Response format
-```json
-{
-  "Success": true,
-  "Total": 1,
-  "UserTotal": Number,
-  "Links": [ { /* link object */ } ]
-}
-```
-|Property|Type|Description|
-|-|-|-|
-|`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
-
-## `DELETE /api/v1/fbonline/tracked_links/hook/{id}`
-Deletes tracked link notification hook. 
-### Request format
-```http request
-DELETE /api/v1/fbonline/tracked_links/hook/{id} HTTP/1.1
-Host: api-tc.is.flippingbook.com
-```
-|Parameter|Required?|Description|
-|-|:-:|-|
-|`id` <Badge>From path</Badge>|Yes|Link trigger identifier.|
 ### Response format
 ```json
 {

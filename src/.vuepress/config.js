@@ -2,8 +2,11 @@ module.exports = {
     title: 'FlippingBook Public APIs documentation',
     description: 'Welcome to the FlippingBook Public APIs documentation',
     dest: 'docs',
+    plugins:[
+      ['@vuepress/google-analytics',{'ga':'UA-344175-32'}]  
+    ],
     themeConfig: {
-        sidebarDepth: 2,
+        sidebarDepth: 1,
         sidebar: [
             '/',
             {
@@ -30,8 +33,7 @@ module.exports = {
                     '/fbonline/publications',
                     '/fbonline/sources',
                     '/fbonline/tracked-links',
-                    '/fbonline/triggers',
-                    '/fbonline/webhooks'
+                    '/fbonline/triggers'
                 ]
             }
         ]

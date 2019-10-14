@@ -1,9 +1,9 @@
 #!/bin/bash
 yarn
 git rm -r docs
-git reset -- docs/CNAME
-git checkout docs/CNAME
 yarn run build
 git add docs
 git reset -- docs/CNAME
+git reset -- docs/google4a163d7332fa55ec.html 
 git checkout docs/CNAME
+git checkout docs/google4a163d7332fa55ec.html 
