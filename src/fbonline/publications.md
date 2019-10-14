@@ -2,6 +2,7 @@
 title: The Publication Entity
 ---
 # The `Publication` Entity
+Publications are the main entity of FlippingBok Online. They serve as an entry point for end-users (readers) and represent a document available online with defined behavior and looks. Yet it is not enough to just create publication, your application have to supply its content by defining one or more [sources](/fbonline/sources).
 
 ## `GET /api/v1/fbonline/publication`
 Lists filtered and/or paged publications in the account.
