@@ -11,7 +11,7 @@ FlippingBook public APIs allow you to use FlippingBook's online services from yo
 
 Section [General Information](/general/) tells about how our APIs are organized and explains common concepts.
 
-Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific APIs information.
+Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
 
 ## FlippingBook Public APIs General Information
 
