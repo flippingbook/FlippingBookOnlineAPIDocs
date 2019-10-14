@@ -7,7 +7,9 @@ description: Welcome to the FlippingBook Public APIs Documentation
 
 ## Welcome to the FlippingBook Public APIs documentation.
 
-This page lists the reference documentation for FlippingBook APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
+This page lists the reference documentation for [FlippingBook](https://flippingbook.com/) APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
+
+A FlippingBook app is a service that converts client's PDFs into interactive digital documents.
 
 ## FlippingBook Public APIs General Information
 
