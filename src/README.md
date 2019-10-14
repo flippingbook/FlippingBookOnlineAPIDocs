@@ -168,8 +168,8 @@ Host: api-tc.is.flippingbook.com
 |:-:|:-:|-|
 |200|KeyLimitExceeded|Your account already has ten API keys. You cannot create more.|
 |200|InvalidAccessToken|The value of supplied `accessToken` is invalid.|
-### `DELETE /api/v1/auth/key`
-Revokes existing API key.
+### Revoke an existing API key
+`DELETE /api/v1/auth/key`
 #### Request format
 ```http request
 DELETE /api/v1/auth/key HTTP/1.1
