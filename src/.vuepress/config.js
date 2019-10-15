@@ -6,7 +6,7 @@ module.exports = {
       ['@vuepress/google-analytics',{'ga':'UA-344175-32'}]  
     ],
     themeConfig: {
-        sidebarDepth: 1,
+        sidebarDepth: 3,
         sidebar: [
             '/',
             {
@@ -18,24 +18,8 @@ module.exports = {
                     '/general/limitations',
                     '/general/change-policy'
                 ]
-            },
-            {
-                title: 'Key Management',
-                path: '/auth/',
-                children: [
-                    '/auth/keys'
-                ]
-            },
-            {
-                title: 'FlippinBook Online API',
-                path: '/fbonline/',
-                children: [
-                    '/fbonline/publications',
-                    '/fbonline/sources',
-                    '/fbonline/tracked-links',
-                    '/fbonline/triggers'
-                ]
             }
+            
         ]
     }
 };
