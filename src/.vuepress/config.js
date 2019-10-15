@@ -6,7 +6,7 @@ module.exports = {
       ['@vuepress/google-analytics',{'ga':'UA-344175-32'}]  
     ],
     themeConfig: {
-        sidebarDepth: 3,
+        sidebarDepth: 5,
         sidebar: [
             '/',
             {
