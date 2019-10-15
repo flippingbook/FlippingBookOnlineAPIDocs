@@ -594,7 +594,7 @@ Host: api-tc.is.flippingbook.com
 DELETE /api/v1/fbonline/publication/{publication-id}/trigger/webhook HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`publication-id` <Badge>From path</Badge>|No|Publication identifier.|
 |`id` <Badge>From path</Badge>|Yes|Trigger identifier.|
