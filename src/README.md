@@ -5,13 +5,13 @@ title: FlippingBook Public APIs Documentation
 description: Welcome to the FlippingBook Public APIs Documentation
 ---
 
-## Welcome to the FlippingBook Public APIs documentation.
+# Welcome to the FlippingBook Public APIs documentation.
 
 This page lists the reference documentation for [FlippingBook](https://flippingbook.com/) APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
 
 A FlippingBook app is a service that converts client's PDFs into interactive digital documents.
 
-## FlippingBook Public APIs General Information
+# FlippingBook Public APIs General Information
 
 There are several Public APIs available to your applications. They are all available via our single-host API gateway `https://api-tc.is.flippingbook.com/`. All APIs require proper [authentication/authorization](/general/authentication) in order to be used. Almost all APIs share the same [error reporting convention](/general/error-handling).
 
@@ -19,9 +19,9 @@ While using APIs you should keep in mind that there are certain [limitations](/g
 
 API requests and responses must be in UTF-8 encoded JSON format regardless of request's `Content-Type`, `Accept-Charset` and `Accept` HTTP headers. Requests may be in 'relaxed' JSON format, so single quotes may be used and property names are not required to be quoted. On the response side there would always be `Content-Type: application/json` header and JSON format will strictly follow the standard.
 
-### Authentication
+## Authentication
 
-#### Authentication Scheme
+### Authentication Scheme
 All publicly available APIs require your application to be authenticated and authorized to make API calls. Authentication is done with HTTP bearer scheme, so all your requests (unless specified explicitly in request description) should come with the `Authorization` HTTP header with proper value:
 
 ```http request
@@ -96,7 +96,7 @@ For every application domain (e.g. FlippingBook Online) there may be additionall
 ## API Changes Policy
 We are constantly improving our APIs to support new product features. However, we do our best to keep backward compatibility with existing integrations. All APIs are versioned (by HTTP path, `/api/v1/...`) and all breaking changes will happen only with new API versions, non-breaking changes (like adding new calls, extending responses with new properties, adding properties to requests while keeping default behavior) may be added to the current version.
 
-## Key Management API
+# Key Management API
 
 This API is used to control your API keys. Using it you may issue new keys, review and revoke existing ones.
 
@@ -200,7 +200,7 @@ Host: api-tc.is.flippingbook.com
 This method is primarily designed for API key testing and has no other meaningful purpose. Thus, it's response format is not standardized and subject to change without notice and/or proper versioning.
 :::
 
-## FlippingBook Online API
+# FlippingBook Online API
 
 FlippingBook Online is a service for converting PDFs into interactive digital documents. Its API allows you to programmatically create publications and customize their look and behavior.
 
