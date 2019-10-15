@@ -9,17 +9,7 @@ module.exports = {
         sidebarDepth: 5,
         sidebar: [
             '/',
-            {
-                title: 'General Information',
-                path: '/general/',
-                children: [
-                    '/general/authentication',
-                    '/general/error-handling',
-                    '/general/limitations',
-                    '/general/change-policy'
-                ]
-            }
-            
+                        
         ]
     }
 };
