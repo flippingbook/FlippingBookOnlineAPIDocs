@@ -102,9 +102,6 @@ We are constantly improving our APIs to support new product features. However, w
 
 This API is used to control your API keys. Using it you may issue new keys, review and revoke existing ones.
 
-Read about entities supported by this API:
-- [Key](/auth/keys)
-
 ### The `Key` Entity
 The `Key` entity represent an API key used to access all other APIs.
 
@@ -212,7 +209,7 @@ To make the integration to external systems easier there is [Triggers/hooks syst
 
 To allow simpler API exploration most entities contain [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) links.
 
-Read about entities supported by this API:
+Entities supported by this API:
 - [Publication](/fbonline/publications)
 - [Publication Sources](/fbonline/sources)
 - [Tracked/Individual Links](/fbonline/tracked-links)
