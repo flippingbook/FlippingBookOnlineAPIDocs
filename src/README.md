@@ -9,15 +9,15 @@ description: FlippingBook APIs documentation
 
 Welcome to the FlippingBook API's specification. 
 
-This page lists the reference documentation for [FlippingBook](https://flippingbook.com/) APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
+This page lists the reference documentation for [FlippingBook](https://flippingbook.com/) APIs. Section [General Information](#flippingbook-public-apis-general-information) is about common concepts and how our APIs are organized. Sections about [Key Management API](#key-management-api) and [FlippingBook Online API](#flippingbook-online-api) provide product-specific information.
 
 A FlippingBook app is a service that converts client's PDFs into interactive digital documents.
 
 ## FlippingBook Public APIs General Information
 
-There are several Public APIs available to your applications. They are all available via our single-host API gateway `https://api-tc.is.flippingbook.com/`. All APIs require proper [authentication/authorization](/general/authentication) in order to be used. Almost all APIs share the same [error reporting convention](/general/error-handling).
+There are several Public APIs available to your applications. They are all available via our single-host API gateway `https://api-tc.is.flippingbook.com/`. All APIs require proper [authentication/authorization](#authentication) in order to be used. Almost all APIs share the same [error reporting convention](#handling-errors).
 
-While using APIs you should keep in mind that there are certain [limitations](/general/limitations) and it may be [changed in the future](/general/change-policy).
+While using APIs you should keep in mind that there are certain [limitations](#api-usage-limits) and it may be [changed in the future](#api-changes-policy).
 
 API requests and responses must be in UTF-8 encoded JSON format regardless of request's `Content-Type`, `Accept-Charset` and `Accept` HTTP headers. Requests may be in 'relaxed' JSON format, so single quotes may be used and property names are not required to be quoted. On the response side there would always be `Content-Type: application/json` header and JSON format will strictly follow the standard.
 
@@ -33,7 +33,7 @@ Authorization: Bearer <your API key>
 ```
 
 ### API Keys
-You may receive your API key (linked to your FlippingBook account) by contacting our support team. Or, if you want to save the hassle just log into your account, go to the `https://logon.flippingbook.com/myaccesstoken`, save value of the `AccessToken` property and then call [Key Management API new key method](/auth/keys#post-api-v1-auth-key).
+You may receive your API key (linked to your FlippingBook account) by contacting our support team. Or, if you want to save the hassle just log into your account, go to the `https://logon.flippingbook.com/myaccesstoken`, save value of the `AccessToken` property and then call [Key Management API new key method](#post-api-v1-auth-key).
 
 API keys are linked to your FlippingBook account and all actions are recorded/audited. No account may have more than 10 API keys.
 
@@ -203,17 +203,11 @@ This method is primarily designed for API key testing and has no other meaningfu
 
 FlippingBook Online is a service for converting PDFs into interactive digital documents. Its API allows you to programmatically create publications and customize their look and behavior.
 
-Publications are represented as [Publication](/fbonline/publications) entities which are build of one or more [Source](/fbonline/sources) entities. Source represents one publication version and usually corresponds to one source PDF file. Each publication may contain zero or many [Tracked/Individual Links](/fbonline/tracked-links) entities which represent special type of links to a publication with independant  tracking, statistics and notifications.
+Publications are represented as [Publication](#publication-entity-model) entities which are build of one or more [Source](#the-source-entity) entities. Source represents one publication version and usually corresponds to one source PDF file. Each publication may contain zero or many [Tracked/Individual Links](#the-tracked-link-entity) entities which represent special type of links to a publication with independant  tracking, statistics and notifications.
 
-To make the integration to external systems easier there is [Triggers/hooks system](/fbonline/triggers).
+To make the integration to external systems easier there is [Triggers/hooks system](#event-triggers).
 
 To allow simpler API exploration most entities contain [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) links.
-
-Entities supported by this API:
-- [Publication](/fbonline/publications)
-- [Publication Sources](/fbonline/sources)
-- [Tracked/Individual Links](/fbonline/tracked-links)
-- [Triggers/Hooks](/fbonline/triggers)
 
 ### `Publication` Entity Model
 
@@ -265,7 +259,7 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Sources`|array of objects|Array of [source objects](/fbonline/source).|
+|`Sources`|array of objects|Array of [source objects](#the-source-entity).|
  
 #### Retrieve information about one single source
 `GET /api/v1/fbonline/publication/{id}/source/{source-id}`
@@ -288,7 +282,7 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Sources`|array of objects|Array of [source objects](/fbonline/source) (one element).|
+|`Sources`|array of objects|Array of [source objects](#the-source-entity) (one element).|
 
 #### Create a new publication source 
 `POST /api/v1/fbonline/publication/{id}/source`
@@ -315,12 +309,12 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Sources`|array of objects|Array of [source objects](/fbonline/source) (one created element).|
+|`Sources`|array of objects|Array of [source objects](#the-source-entity) (one created element).|
 
 ### The `Tracked Link` Entity
 The tracked link is a special link (URL) for the publication with independant statistics and event handling. For example you may have a link which sends you (author) an email when the tracked link is opened for the first time.
 
-Each link has a separate object for handling its events called [trigger](/fbonline/triggers). Link-bound triggers are altered with link's API calls [POST trigger](/fbonline/triggers#post-api-v1-fbonline-tracked-links-hook-id) and [DELETE trigger](/fbonline/triggers#delete-api-v1-fbonline-tracked-links-hook-id).
+Each link has a separate object for handling its events called [trigger](#event-triggers). Link-bound triggers are altered with link's API calls [POST trigger](#create-or-update-an-account-wide-trigger) and [DELETE trigger](#delete-account-wide-trigger).
 
 
 #### List tracked links
@@ -351,7 +345,7 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Total`|number|Total number of links matching request (disregarding offset/count).|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) matching your filter.|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) matching your filter.|
 
 ### Retrieve information about one tracked link
 `GET /api/v1/fbonline/tracked_links/{id}`
@@ -376,7 +370,7 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
 #### Create a new tracked link
 `POST /api/v1/fbonline/tracked_links`
@@ -421,7 +415,7 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
 #### Modify or delete specified tracked link 
 `PUT /api/v1/fbonline/tracked_links/{id}`
@@ -462,7 +456,7 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
 ### Event Triggers
 ::: danger
@@ -491,7 +485,7 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Webhooks`|array of objects|Array of [trigger objects](/fbonline/trigger) defined for your account.|
+|`Webhooks`|array of objects|Array of [trigger objects](#the-tracked-link-entity) defined for your account.|
 
 ##### Create or update an account-wide trigger 
 `POST /api/v1/fbonline/webhook/{id}`
@@ -560,7 +554,7 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Webhooks`|array of objects|Array of [trigger objects](/fbonline/trigger) defined for your publication.|
+|`Webhooks`|array of objects|Array of [trigger objects](#event-triggers) defined for your publication.|
 
 ##### Create or update a publication level trigger
 `POST /api/v1/fbonline/publication/{publication-id}/trigger/{id}`
@@ -644,7 +638,7 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
 ##### Delete a tracked link notification trigger 
 `DELETE /api/v1/fbonline/tracked_links/hook/{id}`
@@ -668,4 +662,4 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
-|`Links`|array of objects|Array of [link objects](/fbonline/tracked-link) (one element).|
+|`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
