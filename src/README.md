@@ -113,7 +113,7 @@ The `Key` entity represent an API key used to access all other APIs.
 GET /api/v1/auth/key?accessToken=string HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`accessToken`|No|This parameter is required only if you omit `Authorization` HTTP header as a fallback authentication method. Value of `accessToken` is a session access token from FlippingBook single sign-on service and could be obtained by visiting `https://logon.flippingbook.com/myaccesstoken` while logged in to [FlippingBook account](https://flippingbook.com/account).|
 ##### Response format
@@ -145,7 +145,7 @@ Host: api-tc.is.flippingbook.com
   "accessToken": String
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`accessToken`|Yes|Value of `accessToken` is a session access token from FlippingBook single sign-on service and could be obtained by visiting `https://logon.flippingbook.com/myaccesstoken` while logged in to [FlippingBook account](https://flippingbook.com/account).|
 ##### Response format
@@ -247,7 +247,7 @@ Once created, sources cannot be updated and/or deleted. On creation they are put
 GET /api/v1/fbonline/publication/{id}/source HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|Yes|Publication identifier. Sources can only be listed for one publication at a time.|
 ##### Response format
@@ -269,7 +269,7 @@ Retrieves information about one single source.
 GET /api/v1/fbonline/publication/{id}/source/{source-id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|Yes|Publication identifier.|
 |`source-id` <Badge>From path</Badge>|Yes|Source identifier.|
@@ -296,7 +296,7 @@ Host: api-tc.is.flippingbook.com
   "Data": String
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`Url`|No|The URL of PDF file to create source for the publication from. URL must be publicly accessible at least for several minutes.|
 |`Data`|No|Base64 encoded PDF file content to create source for the publication from.|
@@ -324,7 +324,7 @@ Each link has a separate object for handling its events called [trigger](#event-
 GET /api/v1/fbonline/tracked_links HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`title`|No|Link filter. In order to match tracked link title must exactly contain `title` value.|
 |`publication-hashid`|No|Link filter. In order to match parent publication must have its URL identifier matching `publication-hashid` value.|
@@ -355,7 +355,7 @@ Host: api-tc.is.flippingbook.com
 GET /api/v1/fbonline/tracked_links/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id <Badge>From path</Badge>`|Yes|Tracked link identifier.|
 ##### Response format
@@ -391,7 +391,7 @@ Host: api-tc.is.flippingbook.com
   "OnNotOpenedUntil": String
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`Title`|Yes|Tracked link title visible only to owner.|
 |`PublicationUid`|Yes|Publication unique identifier for the created link.|
@@ -434,7 +434,7 @@ Host: api-tc.is.flippingbook.com
   "OnNotOpenedUntil": String
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`Title`|Yes|Tracked link title visible only to owner.|
 |`NewState`|No|New state of the link. Can be one of the following values: `Enable` - activate the link; `Disable` - deactivates the link (it cannot be viewed but still counted in the account and can be eventually re-enabled); `Delete` - deletes the link (it cannot be viewed or restored).|
@@ -500,7 +500,7 @@ Host: api-tc.is.flippingbook.com
   "Events": [ String, ... ]
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|No|Trigger identifier.|
 |`Name`|No|Description of a trigger. It is not seen anywhere but via API.|
@@ -524,7 +524,7 @@ Host: api-tc.is.flippingbook.com
 DELETE /api/v1/fbonline/webhook HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|No|Trigger identifier.|
 ###### Response format
@@ -542,7 +542,7 @@ Host: api-tc.is.flippingbook.com
 GET /api/v1/fbonline/publication/{publication-id}/trigger HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`publication-id` <Badge>From path</Badge>|No|Publication identifier.|
 ###### Response format
@@ -569,7 +569,7 @@ Host: api-tc.is.flippingbook.com
   "Events": [ String, ... ]
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`publication-id` <Badge>From path</Badge>|No|Publication identifier.|
 |`id` <Badge>From path</Badge>|No|Trigger identifier.|
@@ -620,7 +620,7 @@ Host: api-tc.is.flippingbook.com
   "Events": [ String, ... ]
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|No|Link trigger identifier.|
 |`Name`|No|Description of a trigger. It is not seen anywhere but via API.|
@@ -647,7 +647,7 @@ Host: api-tc.is.flippingbook.com
 DELETE /api/v1/fbonline/tracked_links/hook/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|Yes|Link trigger identifier.|
 ###### Response format
