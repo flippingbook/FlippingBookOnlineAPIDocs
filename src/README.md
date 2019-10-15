@@ -1,11 +1,13 @@
 ---
-actionText: FlippingBook Public API Documentation
+actionText: FlippingBook APIs documentation
 actionLink: /
-title: FlippingBook Public APIs Documentation
-description: Welcome to the FlippingBook Public APIs Documentation
+title: FlippingBook APIs documentation
+description: FlippingBook APIs documentation
 ---
 
-# Welcome to the FlippingBook Public APIs documentation.
+# FlippingBook APIs documentation
+
+Welcome to the FlippingBook API's specification. 
 
 This page lists the reference documentation for [FlippingBook](https://flippingbook.com/) APIs. Section [General Information](/general/) is about common concepts and how our APIs are organized. Sections about [Key Management API](/auth/) and [FlippingBook Online API](/fbonline/) provide product-specific information.
 
