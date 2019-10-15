@@ -4,13 +4,13 @@ sidebarDepth: 2
 ---
 # Event Triggers
 ::: danger
-Triggers/hooks API is not stabilized yet. It may change in the current API version without prior notice.
+Triggers/hooks API is frequently updated in the current API version without prior notice.
 :::
 
 Triggers and hooks provide a way for your application to react to different FlippingBook Online generated events. They can be defined on multiple layers to handle events in different scopes:
 - Account-wide triggers: notify about events on any account publication or tracked link.
 - Publication level triggers: notify about events on one publication and all tracked links bound to it.
-- Tracked link level triggers: notify about events on one tracked link.
+- Tracked link-level triggers: notify about events on one tracked link.
 
 ## Account Level Triggers
 ### `GET /api/v1/fbonline/webhook`
