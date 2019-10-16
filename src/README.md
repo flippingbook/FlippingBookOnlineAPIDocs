@@ -130,6 +130,7 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`Keys`|array of strings|The list of API keys active for your account.|
+
 ::: tip
 This call might be made without `Authorization` header yet you must supply `accessToken` parameter as a fallback. If `Authorization` header is present, it takes precedence even if its value is invalid.
 :::
@@ -248,7 +249,7 @@ Host: api-tc.is.flippingbook.com
 GET /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|Yes|The publication identifier. `Id` from the [publication model](#publication-entity-model).|
 ##### Response format
@@ -363,7 +364,7 @@ Although you can set any customization data regardless of your account subscript
 DELETE /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
 |`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](#publication-entity-model). When omitted, new publication is created.|
 ##### Response format
