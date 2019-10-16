@@ -209,13 +209,13 @@ To make the integration to external systems easier there is [Triggers/hooks syst
 
 To allow simpler API exploration most entities contain [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) links.
 
-# The `Publication` Entity
-Publications are the main entity of FlippingBok Online. They serve as an entry point for end-users (readers) and represent a document available online with defined behavior and looks. Yet it is not enough to just create a publication, your application has to supply its content by defining one or more [sources](/fbonline/sources).
+### The `Publication` Entity
+Publications are the main entity of FlippingBok Online. They serve as an entry point for end-users (readers) and represent a document available online with defined behavior and looks. Yet it is not enough to just create a publication, your application has to supply its content by defining one or more [sources](#the-source-entity).
 
-## List filtered and/or paged publications in the account
+#### List filtered and/or paged publications in the account
 `GET /api/v1/fbonline/publication`
 
-### Request format
+##### Request format
 ```http request
 GET /api/v1/fbonline/publication?<optional-parametes> HTTP/1.1
 Host: api-tc.is.flippingbook.com
@@ -227,7 +227,7 @@ Host: api-tc.is.flippingbook.com
 |`url`|No|Publication filter. To match publication URL must exactly match `url` value.|
 |`count`|No|Number of publications to return. Defaults to 10.|
 |`offset`|No|Starting a number of publication to return. Defaults to 0.|
-### Response format
+##### Response format
 ```json
 {
   "Success": true,
@@ -238,20 +238,20 @@ Host: api-tc.is.flippingbook.com
 |Property|Type|Description|
 |-|-|-|
 |`Total`|Number|Total number of publications matching request (disregarding offset/count).|
-|`Publications`|array of objects|Matching publications. See [publication model description](/fbonline/publication).|
+|`Publications`|array of objects|Matching publications. See [publication model description](/#publication-entity-model).|
 
-## Retrieve information about one publication by its identifier.
+#### Retrieve information about one publication by its identifier.
 `GET /api/v1/fbonline/publication/{id}`
 
-### Request format
+##### Request format
 ```http request
 GET /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
 |Parameter|Required?|Description|
 |-|:-:|-|
-|`id` <Badge>From path</Badge>|Yes|The publication identifier. `Id` from the [publication model](/fbonline/publication).|
-### Response format
+|`id` <Badge>From path</Badge>|Yes|The publication identifier. `Id` from the [publication model](#publication-entity-model).|
+##### Response format
 ```json
 {
   "Success": true,
@@ -260,17 +260,17 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Publication`|object|The publication model. See [publication model description](/fbonline/publication).|
+|`Publication`|object|The publication model. See [publication model description](#publication-entity-model).|
 
-### Errors
+##### Errors
 |HTTP Status Code|Error code|Meaning|
 |:-:|:-:|-|
 |200|ObjectNotFound|Publication with specified identifier was not found (or does not belong to your account).|
 
-## Update metadata of one publication or create a new publication possibly attaching new source file
+#### Update metadata of one publication or create a new publication possibly attaching new source file
 `POST /api/v1/fbonline/publication/{id}`
 
-### Request format
+##### Request format
 ```http request
 POST /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
@@ -284,12 +284,12 @@ Host: api-tc.is.flippingbook.com
 ```
 |Parameter|Required|Description|
 |-|:-:|-|
-|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](/fbonline/publication). When omitted, the new publication is created.|
+|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](#publication-entity-model). When omitted, the new publication is created.|
 |`Name`|No|Publication name. When omitted existing publication name is left unchanged.|
 |`Description`|No|Publication description. When omitted existing publication description is left unchanged.|
 |`Url`|No|The URL of PDF file to create a source for the publication from. URL must be publicly accessible at least for several minutes.|
 |`Data`|No|Base64 encoded PDF file content to create the source for the publication from.|
-### Response format
+##### Response format
 ```json
 {
   "Success": true,
@@ -309,15 +309,15 @@ Host: api-tc.is.flippingbook.com
 |`CreatedSource.Id`|string|Created source identifier.|
 |`CreatedSource.LastModified`|ISO 8601 date string|Last modification date of the created source.|
 ::: tip
-In case when `Url` or `Data` is specified, the [Source](/fbonline/sources) entity is created implicitly.
+In case when `Url` or `Data` is specified, the [Source](#the-source-entity) entity is created implicitly.
 :::
 ::: warning 
 If `Url` or `Data` contain invalid value (inaccessible URL, not a PDF file, PDF exceeding limitations), source is marked as erroneous and, if it was the only source, the publication itself gets deleted.
 :::
-## Update publication's customization (the look and behavior)
+#### Update publication's customization (the look and behavior)
 `POST /api/v1/fbonline/publication/{id}/customize`
 
-### Request format
+##### Request format
 ```http request
 POST /api/v1/fbonline/publication/{id}/customize HTTP/1.1
 Host: api-tc.is.flippingbook.com
@@ -332,9 +332,9 @@ Host: api-tc.is.flippingbook.com
   "Theme": String
 }
 ```
-|Parameter|Required?|Description|
+|Parameter|Required|Description|
 |-|:-:|-|
-|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](/fbonline/publication). When omitted, new publication is created.|
+|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](#publication-entity-model). When omitted, new publication is created.|
 |`HardCover`|No|Should hard cover be enabled for the publication.|
 |`SetPasswordProtection`|No|How publication password protection should be handled. `keep` to keep existing configuration; `disable` to remove password protection; `manual` - specify password in the `ManualPassword` parameter; `numeric` to generate random password containing only digits; `auto` to generate random password.|
 |`ManualPassword`|No|Password to set for the publication.|
@@ -342,7 +342,7 @@ Host: api-tc.is.flippingbook.com
 |`LogoUrl`|No|New URL for the company logo.|
 |`EnableRtl`|No|Set the publication RTL mode.|
 |`Theme`|No|Set then publication theme.|
-### Response format
+##### Response format
 ```json
 {
   "Success": true,
@@ -351,22 +351,22 @@ Host: api-tc.is.flippingbook.com
 ```
 |Property|Type|Description|
 |-|-|-|
-|`Publication`|object|The publication model. See [publication model description](/fbonline/publication).|
+|`Publication`|object|The publication model. See [publication model description](#publication-entity-model).|
 ::: warning
 Although you can set any customization data regardless of your account subscription plan, it will be filtered of not available features upon publication view. 
 :::
-## Delete a publication
+#### Delete a publication
 `DELETE /api/v1/fbonline/publication/{id}`
 
-### Request format
+##### Request format
 ```http request
 DELETE /api/v1/fbonline/publication/{id} HTTP/1.1
 Host: api-tc.is.flippingbook.com
 ```
 |Parameter|Required?|Description|
 |-|:-:|-|
-|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](/fbonline/publication). When omitted, new publication is created.|
-### Response format
+|`id` <Badge>From path</Badge>|No|The publication identifier. `Id` from the [publication model](#publication-entity-model). When omitted, new publication is created.|
+##### Response format
 ```json
 {
   "Success": true
@@ -475,7 +475,7 @@ Host: api-tc.is.flippingbook.com
 |-|-|-|
 |`Sources`|array of objects|Array of [source objects](#the-source-entity) (one created element).|
 
-# `Source` Entity Model
+### `Source` Entity Model
 
 |Property|Type|Description|
 |-|-|-|
@@ -521,7 +521,7 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) matching your filter.|
 
-### Retrieve information about one tracked link
+#### Retrieve information about one tracked link
 `GET /api/v1/fbonline/tracked_links/{id}`
 
 ##### Request format
@@ -632,7 +632,7 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
-# `Tracked Link` Entity Model
+### `Tracked Link` Entity Model
 
 |Property|Type|Description|
 |-|-|-|
@@ -875,7 +875,7 @@ Host: api-tc.is.flippingbook.com
 |`UserTotal`|number|Total number of links in your account (disregarding filters/offset/count).|
 |`Links`|array of objects|Array of [link objects](#the-tracked-link-entity) (one element).|
 
-## Trigger Entity Model
+### Trigger Entity Model
 
 |Property|Type|Description|
 |-|-|-|
