@@ -14,7 +14,7 @@ A FlippingBook app is a service that converts the client's PDFs into interactive
 
 ## FlippingBook Public APIs General Information
 
-There are several Public APIs available to your applications. They are all available via our single-host API gateway `https://api-tc.is.flippingbook.com/`. All APIs require proper [authentication/authorization](#authentication) in order to be used. Almost all APIs share the same [error reporting convention](#handling-errors).
+There are several Public APIs available to your applications. They are all available via our single-host API gateway `https://api-tc.is.flippingbook.com/`. All APIs require proper [authentication/authorization](#authentication) to be used. Almost all APIs share the same [error reporting convention](#handling-errors).
 
 While using APIs you should keep in mind that there are certain [limitations](#api-usage-limits) and it may be [changed in the future](#api-changes-policy).
 
@@ -32,7 +32,7 @@ Authorization: Bearer <your API key>
 ```
 
 ### API Keys
-You may receive your API key (linked to your FlippingBook account) by contacting our support team. Or, if you want to save the hassle just log into your account, go to the `https://logon.flippingbook.com/myaccesstoken`, save the value of the `AccessToken` property and then call [Key Management API new key method](#post-api-v1-auth-key).
+You may receive your API key (linked to your FlippingBook account) by contacting our support team. Or, if you want to save the hassle just log into your account, go to `https://logon.flippingbook.com/myaccesstoken`, save the value of the `AccessToken` property and then call [Key Management API new key method](#post-api-v1-auth-key).
 
 API keys are linked to your FlippingBook account and all actions are recorded/audited. No account may have more than 10 API keys.
 
@@ -73,7 +73,7 @@ Most error codes are application/call specific, however, some universally return
 |401|BadAuthorizationType|HTTP Authorization scheme is not `Bearer`.|
 |403|InvalidApiKey|The API key supplied in the `Authorization` header is invalid.|
 |404|NotFound|The endpoint specified in your request (a combination of HTTP method and path) does not exist.|
-|429|RateLimitExceeded|Your application calls our API too fast and has exceeded [rate limit](/general/limitations).|
+|429|RateLimitExceeded|Your application calls our API too fast and has exceeded the [rate limit](/general/limitations).|
 |500|InternalError|Your request does not meet required format or some internal error has occurred.|
 
 ### API Usage Limits
@@ -129,7 +129,7 @@ Publications are the main entity of FlippingBok Online. They serve as an entry p
 Publication sources represent the publication's content. More than one source may be added to each publication however only the last converted source will be displayed to end-users (readers). For now, the only supported format for the source is a single PDF file that must be not password-protected and does not contain XFA (forms). There's a limit on PDF file size (500Mb) and amount of pages (2000).
 
 ::: warning
-Once created, sources cannot be updated and/or deleted. On creation they are put into conversion queue and activated (so the publication displays it) when conversion finished.
+Once created, sources cannot be updated and/or deleted. On creation, they are put into conversion queue and activated (so the publication displays it) when conversion finished.
 :::
 
 !!!include(gen/GET-api-v1-fbonline-publication-id-source.md)!!!
@@ -194,4 +194,4 @@ Triggers and hooks provide a way for your application to react to different Flip
 |TrackedPublicationLink-notViewedUntil|Account, Publication, Link|Tracked link was not viewed in the specified time window.|
 |TrackedPublicationLink-download|Account, Publication, Link|Download or print button has been clicked in the publication referenced by the tracked link.|
 
-All events should have `trigger` and `eventData` properties in their data.
+All events should have a `trigger` and `eventData` properties in their data.
