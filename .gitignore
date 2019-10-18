@@ -3,3 +3,5 @@ _build
 .vs
 yarn.lock
 node_modules
+bin
+obj

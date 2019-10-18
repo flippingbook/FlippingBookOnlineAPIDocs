@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/killwort/FlippingBookOnlineAPIDocs#readme",
   "dependencies": {
+    "markdown-it-include": "^1.1.0",
     "vuepress": "^1.1.0"
   },
   "devDependencies": {
