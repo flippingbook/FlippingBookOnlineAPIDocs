@@ -162,12 +162,7 @@ Most of the triggers are created implicitly upon tracked link creation/modificat
 ## Event Names
 
 |Event Name|Scope|Description|
-|-|-|-|
-        - created
-        - updated
-        - deleted
-        - convertationFailed
-        - link
+|-|-|-|        
 |lead|Account, Publication|Lead form in the publication has been passed.|
 |session|Account, Publication, Link|Publication/tracked link view session started.|
 |notViewedUntil|Account, Publication, Link|Tracked link was not viewed in the specified time window.|
