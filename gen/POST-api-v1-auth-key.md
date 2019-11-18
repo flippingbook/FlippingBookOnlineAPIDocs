@@ -14,4 +14,4 @@ API key or with session access token from FlippingBook single sign-on service.
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
-|key|string||
+|key|string|Newly created key for accessing your account via API.|

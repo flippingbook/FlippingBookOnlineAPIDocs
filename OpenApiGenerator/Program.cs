@@ -29,6 +29,7 @@ namespace OpenApiGenerator {
             var document = docLoader(oasDoc.Uri.ToString());
             foreach (var (path, pathSpec) in document.Paths)
             foreach (var (verb, op) in pathSpec.Operations) {
+                if (op.Deprecated) continue;
                 var file = Path.Combine(outputRoot, op.OperationId + ".md");
                 using (var writer = new StreamWriter(file, false, new UTF8Encoding(false))) {
                     writer.WriteLine($"{baseHeading}# {op.Summary}");

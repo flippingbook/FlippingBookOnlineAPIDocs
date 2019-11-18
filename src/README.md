@@ -147,51 +147,33 @@ Each link has a separate object for handling its events called [trigger](#event-
 !!!include(gen/PUT-api-v1-fbonline-tracked-links-linkId-.md)!!!
 
 ### Event Triggers
-::: danger
-Triggers/hooks API is frequently updated in the current API version without prior notice.
-:::
 
-Triggers and hooks provide a way for your application to react to different FlippingBook Online generated events. They can be defined on multiple layers to handle events in different scopes:
+Triggers provide a way for your application to react to different FlippingBook Online generated events. They can be defined on multiple layers to handle events in different scopes:
 - Account-wide triggers: notify about events on any account publication or tracked link.
 - Publication level triggers: notify about events on one publication and all tracked links bound to it.
 - Tracked link-level triggers: notify about events on one tracked link.
 
-#### Account Level Triggers
+Most of the triggers are created implicitly upon tracked link creation/modification however you could manage custom triggers with event trigger API.
 
-!!!include(gen/GET-api-v1-fbonline-webhook.md)!!!
-!!!include(gen/POST-api-v1-fbonline-webhook.md)!!!
-!!!include(gen/POST-api-v1-fbonline-webhook-id-.md)!!!
-!!!include(gen/DELETE-api-v1-fbonline-webhook-id-.md)!!!
-
-#### Publication Level Triggers
-
-!!!include(gen/GET-api-v1-fbonline-publication-id-trigger.md)!!!
-!!!include(gen/POST-api-v1-fbonline-publication-id-trigger.md)!!!
-!!!include(gen/POST-api-v1-fbonline-publication-id-trigger-triggerId-.md)!!!
-!!!include(gen/DELETE-api-v1-fbonline-publication-id-trigger-triggerId-.md)!!!
-
-#### Tracked Link Level Triggers
-
-!!!include(gen/POST-api-v1-fbonline-tracked-links-hook.md)!!!
-!!!include(gen/POST-api-v1-fbonline-tracked-links-hook-triggerId-.md)!!!
-!!!include(gen/DELETE-api-v1-fbonline-tracked-links-hook-triggerId-.md)!!!
+!!!include(gen/POST-api-v1-fbonline-triggers.md)!!!
+!!!include(gen/POST-api-v1-fbonline-triggers-id-.md)!!!
+!!!include(gen/DELETE-api-v1-fbonline-triggers-id-.md)!!!
 
 ## Event Names
 
 |Event Name|Scope|Description|
 |-|-|-|
-|PublicationCreatedCompleted|Account|Publication has been created successfully (first [source](/fbonline/sources) converted).|
-|PublicationUpdatedCompleted|Account|Publication has been updated successfully (non-first [source](/fbonline/sources) converted).|
-|PublicationCompleted|Account|Publication has been created/updated successfully (any [source](/fbonline/sources) converted)|
-|PublicationFailed|Account|Publication conversion failed.|
-|PublicationDeleted|Account|Publication has been deleted.|
+        - created
+        - updated
+        - deleted
+        - convertationFailed
+        - link
 |lead|Account, Publication|Lead form in the publication has been passed.|
-|page|Account, Publication|Publication page shown to end-user.|
-|link|Account, Publication|Link in the publication has been clicked.|
-|download|Account, Publication|Download button in the publication has been clicked.|
+|session|Account, Publication, Link|Publication/tracked link view session started.|
+|notViewedUntil|Account, Publication, Link|Tracked link was not viewed in the specified time window.|
 |print|Account, Publication|Print button in the publication has been clicked.|
-|TrackedPublicationLink-session|Account, Publication, Link|Tracked link view session started.|
-|TrackedPublicationLink-notViewedUntil|Account, Publication, Link|Tracked link was not viewed in the specified time window.|
-|TrackedPublicationLink-download|Account, Publication, Link|Download or print button has been clicked in the publication referenced by the tracked link.|
-
-All events should have a `trigger` and `eventData` properties in their data.
+|created|Account|Publication has been created successfully (first [source](/fbonline/sources) converted).|
+|updated|Account|Publication has been updated successfully (non-first [source](/fbonline/sources) converted).|
+|deleted|Account|Publication has been deleted.|
+|convertationFailed|Account|Publication conversion failed.|
+|link|Account, Publication|Link in the publication has been clicked.|

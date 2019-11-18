@@ -18,7 +18,7 @@ Although you can set any customization data regardless of your account subscript
 |generatePasswordLength|string|The length of the generated random password.|
 |logoUrl|string|New URL for the company logo.|
 |enableRtl|string|Set the publication RTL mode.|
-|theme|string|Set then publication theme.|
+|theme|string|Set the publication theme.|
 ##### Response format
 |Name|Type|Description|
 |-|-|-|

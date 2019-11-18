@@ -13,4 +13,4 @@ This method lists all API keys in your account, including the one you're using t
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
-|keys|array||
+|keys|array|Array of active keys for your account.|
