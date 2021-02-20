@@ -1,12 +1,12 @@
 #### Create a new publication possibly attaching new source file.
 `POST /api/v1/fbonline/publication`
 
-Using this method your application may create publication and initial source file in one request. As an 
+Using this method your application may create publication and initial source file in one request. As an
 alternative, source file might be ommitted and created later with corresponding call.
 ::: tip
 In case when `url` or `data` is specified, the [Source](#the-source-entity) entity is created implicitly.
 :::
-::: warning 
+::: warning
 If `url` or `data` contain invalid value (inaccessible URL, not a PDF file, PDF exceeding limitations),
 source is marked as erroneous and, if it was the only source, the publication itself gets deleted.
 :::
@@ -15,6 +15,8 @@ source is marked as erroneous and, if it was the only source, the publication it
 |-|-|-|
 |name|string|Publication name. When omitted existing publication name is left unchanged.|
 |description|string|Publication description. When omitted existing publication description is left unchanged.|
+|folder|string|Folder id for the publication. When omitted existing publication folder is left unchanged. When set to null, publication is moved to the Home folder.|
+|domain|string|Domain for the publication. When omitted existing publication domain is left unchanged. Should be omitted when your account does not have custom domains.|
 |filename|string|The name of your PDF file.|
 |url|string|The URL of PDF file to create source for the publication from. URL must be publicly accessible at least for several minutes.|
 |data|string|Base64 encoded PDF file content to create source for the publication from.|

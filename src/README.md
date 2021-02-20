@@ -111,6 +111,10 @@ FlippingBook Online is a service for converting PDFs into interactive digital do
 
 Publications are represented as [Publication](#the-publication-entity) entities which are build of one or more [Source](#the-source-entity) entities. The source represents one publication version and usually corresponds to one source PDF file. Each publication may contain zero or many [Tracked/Individual Links](#the-tracked-link-entity) entities that represent a special type of links to a publication with independent tracking, statistics, and notifications.
 
+Publications are contained within [Folders](#the-folder-entity) entities.
+
+If your account allows you to have your own custom domain and you really have at least one then each of your publications must be bound to these [Custom Domain](#the-custom-domain-entity) entities.
+
 To make the integration to external systems easier there is [Triggers/hooks system](#event-triggers).
 
 To allow simpler API exploration most entities contain [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) links.
@@ -145,6 +149,20 @@ Each link has a separate object for handling its events called [trigger](#event-
 !!!include(gen/GET-api-v1-fbonline-tracked-links-linkId-.md)!!!
 !!!include(gen/POST-api-v1-fbonline-tracked-links.md)!!!
 !!!include(gen/PUT-api-v1-fbonline-tracked-links-linkId-.md)!!!
+
+### The `Folder` Entity
+Folders are the means to organize and share between the team members publications in your account. Each account always have special 'Home' folder without an id and any number of private folders. If the account has team features enabled then there might be shared folders - their content is visible to all team members. 
+
+Currently you cannot control folders via API, the only thing you can do is to retrieve a list of them.
+
+!!!include(gen/GET-api-v1-fbonline-folders.md)!!!
+
+### The `Custom Domain` Entity
+Custom domains are an easy way to bring your own (sub)domain to the FlippingBook account. When you have at least one custom domain in your account all your publications have to be moved to one of the domains.
+
+Currently you cannot control custom domains via API except for getting the available custom domains list for your account.
+
+!!!include(gen/GET-api-v1-fbonline-custom-domains.md)!!!
 
 ### Event Triggers
 
