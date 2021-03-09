@@ -113,7 +113,7 @@ Publications are represented as [Publication](#the-publication-entity) entities 
 
 Publications are contained within [Folders](#the-folder-entity) entities.
 
-If your account allows you to have your own custom domain and you really have at least one then each of your publications must be bound to these [Custom Domain](#the-custom-domain-entity) entities.
+If your account gives you an option for a custom domain and you have at least one set up, then each of your publications must be assigned to these [Custom Domain](#the-custom-domain-entity) entities.
 
 To make the integration to external systems easier there is [Triggers/hooks system](#event-triggers).
 
@@ -151,16 +151,16 @@ Each link has a separate object for handling its events called [trigger](#event-
 !!!include(gen/PUT-api-v1-fbonline-tracked-links-linkId-.md)!!!
 
 ### The `Folder` Entity
-Folders are the means to organize and share between the team members publications in your account. Each account always have special 'Home' folder without an id and any number of private folders. If the account has team features enabled then there might be shared folders - their content is visible to all team members. 
+Folders help to organize and share publications in your account between team members. Each account has a 'Home' folder without an id and any number of private folders. If the account has team features enabled then there might be shared folders - their content is visible to all team members.
 
-Currently you cannot control folders via API, the only thing you can do is to retrieve a list of them.
+You can't manage folders via API, but only retrieve a list of folders in your account.
 
 !!!include(gen/GET-api-v1-fbonline-folders.md)!!!
 
 ### The `Custom Domain` Entity
-Custom domains are an easy way to bring your own (sub)domain to the FlippingBook account. When you have at least one custom domain in your account all your publications have to be moved to one of the domains.
+A custom domain is a great way to use your own (sub)domain name in your publication's URL. When you have at least one custom domain in your account all your publications must be assigned to at least one custom domain.
 
-Currently you cannot control custom domains via API except for getting the available custom domains list for your account.
+You can't manage domains via API, but only retrieve a list of available custom domains in your account.
 
 !!!include(gen/GET-api-v1-fbonline-custom-domains.md)!!!
 

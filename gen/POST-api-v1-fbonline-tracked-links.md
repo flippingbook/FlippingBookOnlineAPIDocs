@@ -17,7 +17,7 @@ With this method your application may create a new tracked link for an existing 
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates wheter your request was succesful or not.|
+|success|boolean|Indicates if your request has been successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|

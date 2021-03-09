@@ -9,7 +9,7 @@ This method lists all API keys in your account, including the one you're using t
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates wheter your request was succesful or not.|
+|success|boolean|Indicates if your request has been successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|

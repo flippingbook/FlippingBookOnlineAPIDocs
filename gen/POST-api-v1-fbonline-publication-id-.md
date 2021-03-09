@@ -27,7 +27,7 @@ source is marked as erroneous and, if it was the only source, the publication it
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates wheter your request was succesful or not.|
+|success|boolean|Indicates if your request has been successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
@@ -40,7 +40,7 @@ source is marked as erroneous and, if it was the only source, the publication it
 |links.href|string|Link URL.|
 |lastModified|string|Publication last modification date.|
 |createdSource|object||
-|createdSource.success|boolean|Indicates wheter your request was succesful or not.|
+|createdSource.success|boolean|Indicates if your request has been successful or not.|
 |createdSource|object||
 |createdSource.wellKnownError|string|Machine-readable error code.|
 |createdSource.message|string|Human-readable error message.|
