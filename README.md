@@ -1,21 +1,21 @@
-# Документация API
+# API Documentation Dev Guide
 
-## Написание документации
-### Где что лежит
-Документацию в формате markdown надо писать в папочку `src/`. Каждый .md файл превращается в страничку документации. Чтобы страничка попала в левое меню, надо менять файл `src/.vuepress/config.js`.
+## How to write new docs/update existing
+### What goes where?
+Put your pages in the markdown format into the `src/` folder. Each .md file represents one page in the documentation site. If you'd like to include your page in left sidebar reference it in the `src/.vuepress/config.js`.
 
-### Как удобно работать
-Прежде всего должен быть установлен [nodejs](https://nodejs.org/en/download/current/). После его установки надо открыть командную строку и установить yarn: `npm i -g yarn`.
+### How to ease your work?
+Firstly, install [nodejs](https://nodejs.org/en/download/current/). After that open command prompt and install yarn: `npm i -g yarn`.
 
-Теперь всё готово к работе. Чтобы видеть документацию в процессе написания, надо в папке проекта запустить `devserver.bat` или `devserver.sh`, если всё установленно правильно, то появится окошко терминала, которое немножко подумает и скажет:
+Now you're all set. To preview the docs in the process of writing run `devserver.bat` or `devserver.sh` in the project folder. It will think for a while and finally display console window with the following message:
 ```
 > VuePress dev server listening at http://localhost:8080/
 ```
-Это окошко закрывать не надо, а вместо этого открыть браузер и перейти по указанной ссылке (обычно [http://localhost:8080/](http://localhost:8080/)).
+Do not close that window, open your browser and follow the given link (usually [http://localhost:8080/](http://localhost:8080/)).
 
-Теперь, по мере сохранения файлов, документ в браузере будет перезагружаться и показывать актуальное состояние. 
+Document in the browser will reload as you modify the source files.
 
-## Выкладывание документации
-Так же как и для разработки, для выкладывания должен быть установлен nodejs и yarn. Ещё, (один раз), надо настроить git хуки, для этого в папке с проектом надо запусить `setuphooks.bat` или `setuphooks.sh`.
+## Deploying the docs
+In order to deploy, as for develoment, you will need nodejs and yarn. And as a one-time setup you need to set up git hooks by running `setuphooks.bat` or `setuphooks.sh` in the project folder.
 
-Теперь, когда вы будете делать коммит, хуки автоматически соберут документацию в папке `docs/` и добавят её в коммиту. Дальше - push и всё готово - документация автоматически обновлена на [apidocs.flippingbook.com](http://apidocs.flippingbook.com/) 
+From that time as soon as you commit something these hooks will build final documentation into the `docs/` folder and add it to your commit. After that you could push your work and - viola - docs site [apidocs.flippingbook.com](http://apidocs.flippingbook.com/) is updated automagically.
