@@ -11,7 +11,7 @@ fired or webhook address could be modified.
 |Name|Type|Description|
 |-|-|-|
 |trigger|object||
-|trigger.triggerOn|string|Scope type of the trigger.|
+|trigger.triggerOn|array|Trigger scope type. All triggers should be bound to publication or tracked link.|
 |trigger.events|array|List of events for which the trigger shoud fire.|
 |trigger.endpoint|string|Endpoint of webhook to call upon firing the trigger. When it is called, trigger data  and fire context are POSTed to your hook.|
 |trigger.limitTo|object|Trigger scope. Can be `null` - in this case trigger should fire for specified events for all books/tracked links in your account.|
