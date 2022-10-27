@@ -111,8 +111,6 @@ FlippingBook Online is a service for converting PDFs into interactive digital do
 
 Publications are represented as [Publication](#the-publication-entity) entities which are build of one or more [Source](#the-source-entity) entities. The source represents one publication version and usually corresponds to one source PDF file. Each publication may contain zero or many [Tracked/Individual Links](#the-tracked-link-entity) entities that represent a special type of links to a publication with independent tracking, statistics, and notifications.
 
-Publications are contained within [Folders](#the-folder-entity) entities.
-
 If your account gives you an option for a custom domain and you have at least one set up, then each of your publications must be assigned to these [Custom Domain](#the-custom-domain-entity) entities.
 
 To make the integration to external systems easier there is [Triggers/hooks system](#event-triggers).
@@ -149,13 +147,6 @@ Each link has a separate object for handling its events called [trigger](#event-
 !!!include(gen/GET-api-v1-fbonline-tracked-links-linkId-.md)!!!
 !!!include(gen/POST-api-v1-fbonline-tracked-links.md)!!!
 !!!include(gen/PUT-api-v1-fbonline-tracked-links-linkId-.md)!!!
-
-### The `Folder` Entity
-Folders help to organize and share publications in your account between team members. Each account has a 'Home' folder without an id and any number of private folders. If the account has team features enabled then there might be shared folders - their content is visible to all team members.
-
-You can't manage folders via API, but only retrieve a list of folders in your account.
-
-!!!include(gen/GET-api-v1-fbonline-folders.md)!!!
 
 ### The `Custom Domain` Entity
 A custom domain is a great way to use your own (sub)domain name in your publication's URL. When you have at least one custom domain in your account all your publications must be assigned to at least one custom domain.
