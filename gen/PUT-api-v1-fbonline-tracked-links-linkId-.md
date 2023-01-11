@@ -13,6 +13,7 @@ will not cause to trigger it again if it happened before.
 |publicationUid|string|Publication unique identifier for the created link.|
 |publicationHashid|string|Publication URL identifier for the created link.|
 |publicationUrl|string|Publication URL for the created link.|
+|newState|string|Change link state. Can be one of the following values: `None` (or null/unset) - do not change link state; `Disable` - immediately disable link; `Enable` - re-enable previously disabled link; `Delete` - mark link as deleted. Deleted links cannot be restored and are not accounted towards limits.|
 |notificationType|string|Method for delivering notification on link events. Can be one of the following values: `Email` - notify via email;  `Zapier` - notify via [zapier](https://zapier.com/) integration.|
 |onViewTriggerSingle|boolean|Should notification be delivered when link is opened for the first time?|
 |onViewTrigger|boolean|Should notification be delivered when link is opened (first 10 times)?|
