@@ -3,7 +3,6 @@ module.exports = {
     description: 'Welcome to the FlippingBook Public APIs documentation',
     dest: 'docs',
     plugins:[
-      ['@vuepress/google-analytics',{'ga':'UA-344175-32'}]  
     ],
     theme: 'theme',
     themeConfig: {
@@ -15,5 +14,21 @@ module.exports = {
     },
     extendMarkdown: md => {
       md.use(require('markdown-it-include'))
-    }
+    },
+    head: [
+        [
+            'script',
+            {
+                async: true,
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-YBPN499XZQ',
+            },
+        ],
+        [
+            'script',
+            {},
+            [
+                "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-YBPN499XZQ');",
+            ],
+        ],
+    ],
 };
