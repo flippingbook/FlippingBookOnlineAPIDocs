@@ -18,12 +18,12 @@ There are several Public APIs available for your applications. They can all be a
 
 While using APIs, you should keep in mind that there are certain [limitations](#api-usage-limits), and there may be changes to the version you have now in line with the [Changes Policy](#api-changes-policy).
 
-API requests and responses must be in a UTF-8 encoded JSON format, regardless of the request's `Content-Type`, `Accept-Charset`, and `Accept` HTTP headers. RRequests may also be in a 'relaxed' JSON format: you can use single quotes for strings, and you don’t need to quote property names. On the response side, there will always be `Content-Type: application/json` header, and the JSON format will strictly follow the standard.
+API requests and responses must be in a UTF-8 encoded JSON format, regardless of the request's `Content-Type`, `Accept-Charset`, and `Accept` HTTP headers. Requests may also be in a 'relaxed' JSON format: you can use single quotes for strings, and you don’t need to quote property names. On the response side, there will always be `Content-Type: application/json` header, and the JSON format will strictly follow the standard.
 
 ### Authentication
 
 #### Authentication Scheme
-All publicly available APIs require your application to be authenticated and authorized to make API calls. Authentication is done with the HTTP bearer scheme, so all your requests (unless specified explicitly in the request description) should come with an `Authorization` HTTP header with proper value:
+All publicly available APIs require your application to be authenticated and authorized to make API calls. Authentication is done with the HTTP bearer scheme, so all your requests (unless specified explicitly in the request description) should come with an `Authorization` HTTP header with the proper value:
 
 ```http request
 GET /api/v1/auth/me HTTP/1.1
@@ -113,7 +113,7 @@ Publications are represented as [Publication](#the-publication-entity) entities 
 
 If your plan gives you the option to add a custom domain, and you have at least one domain set up, then all your publications must be assigned to [Custom Domain](#the-custom-domain-entity) entities.
 
-To make the integration to external systems easier, use the [Triggers/hooks system](#event-triggers).
+To monitor specific events and their status, and to make the integration to external systems easier, use [Event triggers](#event-triggers).
 
 For simpler API exploration, most entities contain [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) links.
 
@@ -128,10 +128,10 @@ Publications are the main entity of FlippingBook Online. They serve as an entry 
 !!!include(gen/DELETE-api-v1-fbonline-publication-id-.md)!!!
 
 ### The `Source` Entity
-Publication sources represent the publication's content. Each publication can have more than one source, however, only the last converted source will be displayed to end-users (readers). For now, the only supported format for the source is a single PDF file that is not password-protected and does not contain XFA (forms). There's a limit on PDF file size (500Mb) and the number of pages (2000).
+Sources represent the publication's content. Each publication can have more than one source, however, only the last converted source will be displayed to end-users (readers). For now, the only supported format for the source is a single PDF file that is not password-protected and does not contain XFA (forms). There's a limit on PDF file size (500Mb) and the number of pages (2000).
 
 ::: warning
-Once created, sources cannot be updated and/or deleted. On creation, they are put into a conversion queue and activated (visible in the publication) when conversion is finished.
+Once created, sources cannot be updated and/or deleted. On creation, they are put into a conversion queue and are activated (visible in the publication) when the conversion is finished.
 :::
 
 !!!include(gen/GET-api-v1-fbonline-publication-id-source.md)!!!
