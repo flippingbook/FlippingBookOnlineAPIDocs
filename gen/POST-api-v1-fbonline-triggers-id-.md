@@ -1,9 +1,9 @@
 #### Update a trigger
 `POST /api/v1/fbonline/triggers/{id}`
 
-With this method, your application can modify a trigger-either the events that cause it to fire, or its webhook address.
+With this method, your application can modify a trigger - either the events that cause it to fire, or its webhook address.
 ::: warning
-Do not try to update the triggers that are generated automatically. Only use this method to update the triggers you’ve created yourself.
+Do not try to update triggers that are generated automatically. Only use this method to update the triggers you�ve created yourself.
 :::
 ##### Parameters in path and query
 |Name|Description|
@@ -22,7 +22,7 @@ Do not try to update the triggers that are generated automatically. Only use thi
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates whether your request was succesful or not.|
+|success|boolean|Indicates whether your request was successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|

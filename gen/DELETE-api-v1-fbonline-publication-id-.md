@@ -12,7 +12,7 @@ Publications are not deleted immediately, instead, they are put into a 'deleted'
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates whether your request was succesful or not.|
+|success|boolean|Indicates whether your request was successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|

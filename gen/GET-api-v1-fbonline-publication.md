@@ -17,13 +17,13 @@ value (max 1000), or fetch the next pages using the `offset` parameter.
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates whether your request was succesful or not.|
+|success|boolean|Indicates whether your request was successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
 |total|integer|The total number of publications matching your request (disregarding offset/count).|
 |publications|array|Matching publications.|
-|publications.id|string|Publication's unique identifier. It is permanent, none of your actions will change it.|
+|publications.id|string|Publication's unique identifier. It's permanent, none of your actions will change it.|
 |publications.hashId|string|Publication identifier for URLs. Although it is automatically assigned to all publications,  it may be changed with the help of our support team, so you should not rely on this as a valid/unique publication identifier.|
 |publications.name|string|Publication name.|
 |publications.description|string|Publication description.|
@@ -34,7 +34,7 @@ value (max 1000), or fetch the next pages using the `offset` parameter.
 |publications.state|string|Publication status. It may consist of any combination (comma separated) of the following values:  `Trashed` - the publication was moved to trash, but can still be restored;  `Deleted` - the publication was irreversibly deleted;  `CompletedAllStages` - the publication has at least one source that converted successfully;  `HasContent`, `Empty`, `Published` - internal statuses, do not rely on them.|
 |publications.seoEnabled|boolean|Indicates whether SEO optimization is enabled for the publication. If true, that means web search indexing engines will see the text  content of your publication, and it will appear in our sitemap.|
 |publications.ownerHashId|string|Publication owner identifier. Typically not used.|
-|publications.contentRoot|string|Base URL for all publication assets. Files there are not public, so you cannot access them without viewing the actual publication (when allowed by the publication's security policy).|
+|publications.contentRoot|string|Base URL for all publication assets. Files there are not public, so you cannot access them without viewing the actual publication (when allowed by its security policy).|
 |publications.cover|string|Publication cover URL.|
 |publications.canonicalLink|string|Canonical URL of the publication.|
 |publications.totalPages|integer|The total number of pages in the publication. This will have a valid value once the publication source has completely converted.|

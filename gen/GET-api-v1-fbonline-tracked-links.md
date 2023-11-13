@@ -15,7 +15,7 @@ links are bound to individual publications, they can be fetched in the account c
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates whether your request was succesful or not.|
+|success|boolean|Indicates whether your request was successful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
@@ -25,7 +25,7 @@ links are bound to individual publications, they can be fetched in the account c
 |links.id|string|Link's unique identifier.|
 |links.title|string|Link title (visible only to the link owner, not to end-users).|
 |links.state|string|Link state. It may consist of any combination (comma separated) of the following values: `WithNewData` - there are some new statistics collected for the link which you haven't seen via your account (views via API do not count); `WithoutNewData` - there are no 'unseen' statistics for the link; `Active` - the link is active and enabled; `Deleted` - the link was deleted and unavailable to end-users (readers); `Expired` - the link's lifetime has ended since it was not clicked on before the set expiration time.|
-|links.createdAt|string|Link creation timestamp. ISO 8601 date format.|
+|links.createdAt|string|Link creation timestamp, ISO 8601 date format.|
 |links.urlName|string|The unique URL part of the link. To get the full URL, you should prefix it with `https://online.flippingbook.com/link/` (for the default domain).|
 |links.triggerId|string|Trigger identifier for the link.|
 |links.shortStats|object|View statistics for the link.|
