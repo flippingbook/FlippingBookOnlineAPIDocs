@@ -5,10 +5,10 @@ With this method your application can list folders available to the current user
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates if your request has been successful or not.|
+|success|boolean|Indicates whether your request was succesful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
 |folders|array|List of folders.|
-|folders.id|number|Folder id.|
+|folders.id|string|Folder ID.|
 |folders.name|string|Folder name.|

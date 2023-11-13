@@ -1,9 +1,9 @@
 #### Delete publication
 `DELETE /api/v1/fbonline/publication/{id}`
 
-With this method your application can mark publication for deletion.
+With this method, your application can mark a publication for deletion.
 ::: tip
-Publications are not deleted immediately, instead they are put into 'deleted' state and deleted irreversibly after a period of time.
+Publications are not deleted immediately, instead, they are put into a 'deleted' state and deleted irreversibly after a period of time.
 :::
 ##### Parameters in path and query
 |Name|Description|
@@ -12,7 +12,7 @@ Publications are not deleted immediately, instead they are put into 'deleted' st
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates if your request has been successful or not.|
+|success|boolean|Indicates whether your request was succesful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|

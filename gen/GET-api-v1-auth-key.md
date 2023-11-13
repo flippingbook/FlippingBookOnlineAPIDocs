@@ -1,16 +1,16 @@
 #### List all API keys for your account
 `GET /api/v1/auth/key`
 
-This method lists all API keys in your account, including the one you're using to call it.
+This method lists all API keys for your account, including the one you are using to call it.
 ##### Parameters in path and query
 |Name|Description|
 |-|-|
-|<Badge>Query</Badge> accessToken|This parameter is required only if you omit `Authorization` HTTP header as a fallback authentication method. Value of  `accessToken` is a session access token from FlippingBook single sign-on service and could be obtained by visiting  `https://logon.flippingbook.com/myaccesstoken` while logged in to [FlippingBook account](https://flippingbook.com/account).|
+|<Badge>Query</Badge> accessToken|This parameter is required only if you omit the `Authorization` HTTP header as a fallback authentication method. The value of  `accessToken` is your session access token from FlippingBook-its single sign-on service. To obtain it, visit  `https://logon.flippingbook.com/myaccesstoken` while logged in to your [FlippingBook account](https://flippingbook.com/account).|
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates if your request has been successful or not.|
+|success|boolean|Indicates whether your request was succesful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
-|keys|array|Array of active keys for your account.|
+|keys|array|An array of active keys for your account.|

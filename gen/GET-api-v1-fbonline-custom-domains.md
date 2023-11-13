@@ -1,13 +1,13 @@
-#### List available custom domains.
+#### List all available custom domains.
 `GET /api/v1/fbonline/custom-domains`
 
-With this method your application can list custom domains available to the current user.
+With this method, your application can list custom domains available to the current user.
 ##### Response format
 |Name|Type|Description|
 |-|-|-|
-|success|boolean|Indicates if your request has been successful or not.|
+|success|boolean|Indicates whether your request was succesful or not.|
 |wellKnownError|string|Machine-readable error code.|
 |message|string|Human-readable error message.|
 |error|string|Detailed error code.|
-|customDomainsEnabled|boolean|Custom domains available to the current user|
+|customDomainsEnabled|boolean|Whether custom domains are available to the current user.|
 |customDomains|array|List of custom domain names.|
