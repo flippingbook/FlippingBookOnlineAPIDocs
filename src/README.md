@@ -87,6 +87,7 @@ Each API key is allowed to make up to ten consequent requests without any delay.
 
 #### General API Limitations
 API keys are associated with your FlippingBook account. For each account, there may be no more than ten keys.
+Total request size is limited to 1MB. This limit mainly affect uploads and in case you need to upload bigger file consider using download from URL instead.
 
 #### Specific API Limitations
 Your purchased plan or edition may limit your access to API features or the entities you’re allowed to use.
@@ -128,7 +129,7 @@ Publications are the main entity of FlippingBook Online. They serve as an entry 
 !!!include(gen/DELETE-api-v1-fbonline-publication-id-.md)!!!
 
 ### The `Source` Entity
-Sources represent the publication's content. Each publication can have more than one source, however, only the last converted source will be displayed to end-users (readers). For now, the only supported format for the source is a single PDF file that is not password-protected and does not contain XFA (forms). There's a limit on PDF file size (500Mb) and the number of pages (2000).
+Sources represent the publication's content. Each publication can have more than one source, however, only the last converted source will be displayed to end-users (readers). For now, the only supported format for the source is a single PDF file that is not password-protected and does not contain XFA (forms). There's a limit on PDF file size (500Mb) and the number of pages (2000). Total request size should not exceed 1MB, it mainly affects base64-encoded PDF uploads (in the `data` field).
 
 ::: warning
 Once created, sources cannot be updated and/or deleted. On creation, they are put into a conversion queue and are activated (visible in the publication) when the conversion is finished.
