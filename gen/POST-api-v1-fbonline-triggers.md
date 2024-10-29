@@ -2,7 +2,7 @@
 `POST /api/v1/fbonline/triggers`
 
 With this method, your application may create new triggers. In order for the trigger to work properly, you should
-set the trigger scope (`limitTo`), events, and an endpoint.
+set events, and an endpoint.
 ##### Parameters in request body
 |Name|Type|Description|
 |-|-|-|
