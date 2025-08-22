@@ -32,7 +32,7 @@ Authorization: Bearer <your API key>
 ```
 
 ### API Keys
-To receive your first API key, please [contact our support team](https://flippingbook.com/contacts?contact-form=support). After that, you can create new keys yourself, following the instructions in [Key Management API](#create-a-new-api-key-for-your-account). You’ll also need the value of `AccessToken` property for it: to get it, log into your account and go to `https://logon.flippingbook.com/myaccesstoken`.
+To receive your first API key, please [refer to our Help Center](https://flippingbook.com/help/online/other-features-and-options/manage-api-keys). After that, you can create new keys yourself, following the instructions in [Key Management API](#create-a-new-api-key-for-your-account). You’ll also need the value of `AccessToken` property for it: to get it, log into your account and go to `https://logon.flippingbook.com/myaccesstoken`.
 
 API keys are linked to your FlippingBook account, and all actions are recorded and audited. You can’t have more than 10 API keys per account.
 
