@@ -17,10 +17,12 @@ module.exports = {
     },
     head: [
         [
-            'script',
+             'script',
             {
                 async: true,
-                src: 'https://www.googletagmanager.com/gtag/js?id=G-YBPN499XZQ',
+                src: 'https://d1qwl4ymp6qhug.cloudfront.net/gstatic/googletagmanager/G-YBPN499XZQ.js',
+                integrity: "sha384-xFvEp2+r78Ydxkh3Su0qUM+hJRbJ0VmLIj6qrHvpWs8PEUTeH3y3x0uekIaB1j6L",
+                crossorigin: "anonymous"
             },
         ],
         [
